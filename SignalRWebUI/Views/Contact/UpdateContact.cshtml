@@ -1,0 +1,109 @@
+﻿@using SignalRWebUI.Dtos.ContactDtos
+@model UpdateContactDto
+@{
+    ViewData["Title"] = "UpdateContact";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">İletişim Bilgi Güncelleme</h4>
+
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="alert alert-danger">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach (var modelError in ViewData.ModelState)
+                    {
+                        foreach (var error in modelError.Value.Errors)
+                        {
+                            <li>@modelError.Key: @error.ErrorMessage</li>
+                        }
+                    }
+                </ul>
+            </div>
+        }
+
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="UpdateContact" asp-controller="Contact" method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">İletişim Bilgi Güncelleme</div>
+                        </div>
+
+                        <!-- 🔴 ContactId hidden field -->
+                        <input type="hidden" asp-for="ContactId" />
+
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Location">Lokasyonu Giriniz</label>
+                                <input type="text" class="form-control" asp-for="Location" id="Location">
+                                <span asp-validation-for="Location" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="City">Şehir Giriniz</label>
+                                <input type="text" class="form-control" asp-for="City" id="City">
+                                <span asp-validation-for="City" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Phone">Telefon Numarası Giriniz</label>
+                                <input type="text" class="form-control" asp-for="Phone" id="Phone">
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Email">Mail Adresi Giriniz</label>
+                                <input type="email" class="form-control" asp-for="Email" id="Email">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="title">Alt Başlık</label>
+                                <input type="text" class="form-control" asp-for="FooterTitle" id="title">
+                                <span asp-validation-for="FooterTitle" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="OpenDays">Açık Günler</label>
+                                <input type="text" class="form-control" asp-for="OpenDays" id="OpenDays">
+                                <span asp-validation-for="OpenDays" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="OpenHours">Açık Saatler</label>
+                                <input type="text" class="form-control" asp-for="OpenHours" id="OpenHours">
+                                <span asp-validation-for="OpenHours" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Description">Alt Açıklama Alanı</label>
+                                <textarea rows="5" class="form-control" asp-for="FooterDescription" id="Description"></textarea>
+                                <span asp-validation-for="FooterDescription" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button type="submit" class="btn btn-primary">İletişim Bilgisini Güncelle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
