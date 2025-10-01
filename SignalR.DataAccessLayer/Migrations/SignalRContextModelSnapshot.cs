@@ -200,6 +200,26 @@ namespace SignalR.DataAccessLayer.Migrations
                     b.ToTable("Features");
                 });
 
+            modelBuilder.Entity("SignalR.EntityLayer.Entities.MenuTable", b =>
+                {
+                    b.Property<int>("MenuTableID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MenuTableID"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("MenuTableID");
+
+                    b.ToTable("MenuTables");
+                });
+
             modelBuilder.Entity("SignalR.EntityLayer.Entities.MoneyCase", b =>
                 {
                     b.Property<int>("MoneyCaseID")
@@ -309,6 +329,43 @@ namespace SignalR.DataAccessLayer.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("SignalR.EntityLayer.Entities.Slider", b =>
+                {
+                    b.Property<int>("SliderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SliderId"), 1L, 1);
+
+                    b.Property<string>("Description1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SliderId");
+
+                    b.ToTable("Sliders");
                 });
 
             modelBuilder.Entity("SignalR.EntityLayer.Entities.SocialMedia", b =>

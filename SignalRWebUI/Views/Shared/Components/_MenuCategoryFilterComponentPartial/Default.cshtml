@@ -1,0 +1,14 @@
+﻿@using SignalRWebUI.Dtos.CategoryDtos
+@model List<ResultCategoryDto>
+
+
+
+<ul class="filters_menu">
+    <li class="active" data-filter="*">Tüm Ürünler</li>
+
+    @foreach (var item in Model)
+
+    {
+        <li data-filter=".@item.Name">@item.Name</li>
+    }
+</ul>

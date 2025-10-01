@@ -57,5 +57,10 @@ namespace SignalR.BusinessLayer.Concrete
 		{
 			throw new NotImplementedException();
 		}
+
+		public decimal TTodayTotalPrice()
+		{
+			return _orderDal.TodayTotalPrice();
+		}
 	}
 }
