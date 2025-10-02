@@ -8,7 +8,25 @@
 <html>
 
 @await Component.InvokeAsync("_UILayoutHeadComponentPartial")
+<script>
+    function showproductid(productId) {
+        $.ajax({
+            type: 'POST',
+            url: "/Menu/AddBasket",   // id query string olarak değil, body'de gönderilecek
+            data: { id: productId }, // parametre buradan gidecek
+            success: function () {
+                swal("Seçilen Ürün ID: " + productId,
+                     "Ürün sepete eklendi!", "success");
+            },
+            error: function (xhr, status, error) {
+                console.error("Hata:", error);
+                swal("Hata!", "Ürün sepete eklenirken sorun oluştu.", "error");
+            }
+        });
+    }
+</script>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <body class="sub_page">
 
     @await Component.InvokeAsync("_MenuNavbarComponentPartial")
@@ -23,6 +41,8 @@
 
 
             @await Component.InvokeAsync("_MenuCategoryFilterComponentPartial")
+
+
 
             <div class="filters-content">
                 <div class="row grid">
@@ -45,8 +65,9 @@
                                             <h6>
                                                 @item.Price₺
                                             </h6>
-                                            <a href="#" onclick="showproductid(@item.ProductID, @ViewBag.v)">
-
+                                            <a href="javascript:void(0)"
+                                               onclick="showproductid(@item.ProductID)"
+                                               class="btn btn-sm btn-success">
 
                                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                                 <g>
@@ -121,31 +142,7 @@
 
     @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
 
-    <script>
 
-        function showproductid(productId, menuTableId) {
-            $.ajax({
-                type: 'POST',
-                url: "/Menu/AddBasket",
-                data: {
-                    id: productId,
-                    menuTableId: menuTableId 
-                },
-                success: function () {
-                    swal("Seçilen Ürün ID:" + productId, "Seçtiğiniz Ürün Sepete Eklendi!", "success");
-                },
-                error: function (xhr, status, error) {
-                    console.error("Hata:", error);
-                    console.log("Yanıt:", xhr.responseText);
-                }
-            });
-        };
-
-
-
-
-    </script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

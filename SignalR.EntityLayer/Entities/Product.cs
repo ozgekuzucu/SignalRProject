@@ -1,4 +1,6 @@
-﻿namespace SignalR.EntityLayer.Entities
+﻿using System.Text.Json.Serialization;
+
+namespace SignalR.EntityLayer.Entities
 {
 	public class Product
 	{
@@ -10,6 +12,7 @@
 		public bool ProductStatus { get; set; }
 		public int CategoryId { get; set; }
 		public Category Category { get; set; }
-		//public List<OrderDetail> OrderDetails { get; set; }
+		public List<OrderDetail> OrderDetails { get; set; }
+		public List<Basket> Baskets { get; set; }
 	}
 }
