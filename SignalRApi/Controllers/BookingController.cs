@@ -44,9 +44,13 @@ namespace SignalRApi.Controllers
 		public IActionResult DeleteBooking(int id)
 		{
 			var value = _bookingService.TGetById(id);
+			if (value == null)
+				return NotFound("Rezervasyon bulunamadı.");
+
 			_bookingService.TDelete(value);
 			return Ok("Rezervasyon Silindi");
 		}
+
 
 		[HttpPut]
 		public IActionResult UpdateBooking(UpdateBookingDto updateBookingDto)

@@ -51,7 +51,7 @@ namespace SignalRWebUI.Controllers
 			{
 				return RedirectToAction("Index");
 			}
-			return View();
+			return RedirectToAction("Index");
 		}
 		[HttpGet]
 		public async Task<IActionResult> UpdateBooking(int id)
