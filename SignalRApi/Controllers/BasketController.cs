@@ -19,14 +19,12 @@ namespace SignalRApi.Controllers
 		{
 			_basketService = basketService;
 		}
-
 		[HttpGet]
 		public IActionResult GetBasketByMenuTableID(int id)
 		{
 			var values = _basketService.TGetBasketByMenuTableNumber(id);
 			return Ok(values);
 		}
-
 		[HttpGet("BasketListByMenuTableWithProductName")]
 		public IActionResult BasketListByMenuTableWithProductName(int id)
 		{
@@ -51,14 +49,13 @@ namespace SignalRApi.Controllers
 			_basketService.TAdd(new Basket()
 			{
 				ProductID = createBasketDto.ProductID,
+				MenuTableID = createBasketDto.MenuTableID,
 				Count = 1,
-				MenuTableID = 4,
 				Price = context.Products.Where(x => x.ProductId == createBasketDto.ProductID).Select(y => y.Price).FirstOrDefault(),
-				TotalPrice = 0
+				TotalPrice = createBasketDto.TotalPrice,
 			});
 			return Ok();
 		}
-
 		[HttpDelete("{id}")]
 		public IActionResult DeleteBasket(int id)
 		{
