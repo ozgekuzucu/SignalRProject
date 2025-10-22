@@ -1,6 +1,6 @@
 # 🍽️ SignalR ile QR Kodlu Restoran Sipariş Yönetimi
 
-Bu proje, restoranların dijital dönüşümünü desteklemek amacıyla geliştirilen, **gerçek zamanlı veri akışı**, **QR kod ile sipariş verme** ve **dinamik yönetim paneli** özelliklerine sahip bir web uygulamasıdır.  
+Bu proje, **gerçek zamanlı veri akışı**, **QR kod ile sipariş verme**, **dinamik yönetim paneli** ve **Google Gemini AI destekli akıllı restoran asistanı (chatbot)** özelliklerine sahip bir web uygulamasıdır.  
 Uygulama, **ASP.NET Core 6.0**, **SignalR**, **Entity Framework Core** ve **N Katmanlı Mimari** prensipleriyle geliştirilmiştir.
 
 ---
@@ -16,7 +16,15 @@ SignalR kütüphanesi sayesinde;
 - 📊 **Canlı istatistikler anında güncellenir**,  
 - 🔔 **Bildirimler sayfa yenilenmeden gösterilir**.
 
----
+## 🤖 AI Chatbot - Restoran Asistanı
+ Projede **Google Gemini AI** kullanılarak 7/24 hizmet veren akıllı bir chatbot yer almaktadır.  
+ SignalR ile gerçek zamanlı iletişim sağlanarak sipariş takibi, menü bilgisi ve müşteri sorularına anında yanıt verir.
+ 
+ Temel Özellikler:
+ - 📦 Sipariş takibi ve anlık durum sorgulama
+ - 🍽️ Menü ve ürün bilgilerini görüntüleme
+ - 💬 Türkçe dil desteğiyle doğal konuşma
+ - 🧠 Masa bilgisi hatırlama
 
 ## 🧩 Proje Mimarisi
 
@@ -42,7 +50,7 @@ Katmanlar arası veri transferini kolaylaştırmak için oluşturulmuştur.
 - AutoMapper kullanılarak dönüşümler otomatikleştirilmiştir.
 
 ### 🔗 API Layer  
-RESTful mimarideki servislerin bulunduğu katmandır.  
+Mimarideki servislerin bulunduğu katmandır.  
 - CRUD işlemleri API üzerinden gerçekleştirilir.  
 - Swagger arayüzü ile test edilebilir yapıdadır.
 
@@ -92,7 +100,7 @@ Kullanıcı arayüzü ve yönetim paneli bu katmandadır.
 | Katman / Teknoloji | Açıklama |
 |--------------------|----------|
 | **Backend** | ASP.NET Core 6.0, Web API, SignalR |
-| **Database** | MSSQL, Entity Framework Core (Code First) |
+| **Database** | MSSQL, Entity Framework Core |
 | **Frontend** | HTML, CSS, Bootstrap, JavaScript, jQuery, AJAX |
 | **Mimari** | N Katmanlı Mimari (Entity, DAL, Business, DTO, API, UI) |
 | **Doğrulama** | FluentValidation |
@@ -101,18 +109,102 @@ Kullanıcı arayüzü ve yönetim paneli bu katmandadır.
 | **Mail** | MailKit |
 | **QR Kod** | QRCoder.dll |
 | **Gerçek Zamanlı** | SignalR |
-| **Dış API** | RapidAPI – TastyAPI Entegrasyonu |
+| **RapidAPI** | RapidAPI – TastyAPI Entegrasyonu |
 | **Dokümantasyon** | Swagger |
 
 ---
 
 ## 🔐 Kimlik Doğrulama ve Yetkilendirme
 - ASP.NET Identity ile kullanıcı giriş/çıkışı yönetilir.  
-- Kullanıcı rolleri (Admin/User) tanımlanmıştır.  
 - Yetkisiz erişimler otomatik olarak login sayfasına yönlendirilir.
 
 ---
 
 ## 📸 Ekran Görselleri
-> 📷 Projeye ait görseller bu alanda paylaşılabilir.  
-> Örneğin: “Vitrin Paneli”, “Admin Paneli”, “Masa Durumu”, “Gerçek Zamanlı Bildirimler” gibi başlıklarla eklenebilir.
+
+>  ### 🏠 Ana Sayfa
+ ![Ana Sayfa](/images/main.jpeg)
+
+> ### 📲 Masa Erişimi
+ ![QR Kod Menü](/images/default-masa.jpeg)
+
+> ### 🍔 Ürün ve Kategori Görüntüleme
+![Ürün Listesi](/images/menu.jpeg)
+
+> ### 🤖 Canlı Chat / Chatbot
+![Chatbot](/images/chatbot.png)
+![Chatbot](/images/chatbot2.png)
+
+> ### 🛒 Sepet Sayfası
+![Sipariş Adımı](/images/default-basket.jpeg)
+
+> ### 📅 Rezervasyon Formu
+![Rezervasyon](/images/default-reservation.jpeg)
+
+> ### ✉️ Rezervasyon Sonrası Mail Bildirimi
+![Mail Bildirimi](/images/mail-page.jpeg)
+![Mail Bildirimi](/images/mail.png)
+
+> ### 💬 Canlı Mesajlaşma (SignalR)
+![Mesajlaşma](/images/signalr-anlikmesajlaşma.jpeg)
+
+> ### 🍲 Tarifler (Recipes)
+![Tarifler](/images/recipes.jpeg)
+
+> ### 📋 Menü Sayfası
+![Menü](/images/menu.jpeg)
+![Menü](/images/menu2.jpeg)
+
+> ### ⚠️ Hata Sayfası (404 / Error Page)
+![Hata Sayfası](/images/error.jpeg)
+
+> ### 🧑‍💼 Admin Giriş Sayfası
+![Admin Login](/images/login.png)
+
+> ### 🧾 Admin Paneli - Sipariş Yönetimi
+![Admin Siparişler](/images/admin-reservation-list.jpeg)
+![Admin Siparişler](/images/admin-reservation-update.jpeg)
+![Admin Siparişler](/images/admin-add-reservation.jpeg)
+
+> ### 📊 Gerçek Zamanlı İstatistikler (SignalR)
+![Gerçek Zamanlı Veriler](/images/admin-statistics.jpeg)
+
+> ### 🪪 Admin Bilgi Güncelleme
+![Admin Profili](/images/admin-settings.jpeg)
+
+> ### 🧾 QR Kod Oluşturma Ekranı
+![QR Kod Yönetimi](/images/qr-code.jpeg)
+
+### ℹ️ Admin Hakkımızda Sayfası
+![Hakkımızda Yönetimi](/images/admin-about.jpeg)
+
+> ### 🏷️ Admin Kategori Yönetimi
+![Kategori Yönetimi](/images/admin-category-update.jpeg)
+![Kategori Yönetimi](/images/admin-add-category.jpeg) 
+
+> ### 🌟 Admin Öne Çıkanlar / Özellikler
+![Öne Çıkanlar](/images/admin-feature.jpeg)
+
+> ### 🪑 Admin Masa Yönetimi
+![Masa Yönetimi](/images/admin-masa.jpeg)
+
+> ### 📅 Admin Rezervasyon Yönetimi
+![Rezervasyon Yönetimi](/images/admin-reservation-list.jpeg)
+![Rezervasyon Yönetimi](/images/admin-add-reservation.jpeg)
+![Rezervasyon Yönetimi](/images/admin-reservation-update.jpeg)
+
+> ### 🔔 Admin Bildirim ve Ayarlar
+![Bildirim ve Ayarlar](/images/admin-notification.jpeg)
+
+> ### 📱 Admin Sosyal Medya Yönetimi
+![Sosyal Medya](/images/admin-social-media.jpeg)
+
+> ### 📝 Admin Referans / Yorum Yönetimi
+![Referanslar](/images/admin-referans.jpeg)
+
+> ### 🍽️ Admin Ürün Yönetimi
+![Ürün Yönetimi](/images/admin-product-list.jpeg)
+![Ürün Yönetimi](/images/admin-update-product.jpeg)
+![Ürün Yönetimi](/images/admin-add-product.jpeg)
+
+
