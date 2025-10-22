@@ -31,6 +31,10 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.ContainerDependencies();
 
+builder.Services.AddScoped<IChatMessageDal, EfChatMessageDal>();
+builder.Services.AddScoped<IChatService, ChatService>(); 
+builder.Services.AddScoped<IOpenAIService, GeminiService>();
+
 builder.Services.AddValidatorsFromAssemblyContaining<CreateBookingValidation>();
 
 builder.Services.AddControllersWithViews()
@@ -59,5 +63,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapHub<SignalRHub>("/signalrhub");
+app.MapHub<ChatHub>("/chathub");
 
 app.Run();

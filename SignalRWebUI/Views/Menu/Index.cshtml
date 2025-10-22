@@ -16,15 +16,10 @@
     <section class="food_section layout_padding">
         <div class="container">
             <div class="heading_container heading_center">
-                <h2>
-                    Menümüz
-                </h2>
+                <h2>Menümüz</h2>
             </div>
 
-
             @await Component.InvokeAsync("_MenuCategoryFilterComponentPartial")
-
-
 
             <div class="filters-content">
                 <div class="row grid">
@@ -37,71 +32,16 @@
                                         <img src="@item.ImageUrl" alt="">
                                     </div>
                                     <div class="detail-box">
-                                        <h5>
-                                            @item.ProductName
-                                        </h5>
-                                        <p>
-                                            @item.Description
-                                        </p>
+                                        <h5>@item.ProductName</h5>
+                                        <p>@item.Description</p>
                                         <div class="options">
-                                            <h6>
-                                                @item.Price₺
-                                            </h6>
+                                            <h6>@item.Price₺</h6>
                                             <a href="#" onclick="showproductid(@item.ProductID, @ViewBag.v)">
-
-
                                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                                                <g>
-                                                <g>
-                                                <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                             c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                                      </g>
-                                    </g>
-                                                <g>
-                                                <g>
-                                                <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                             C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                             c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                             C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                                      </g>
-                                    </g>
-                                                <g>
-                                                <g>
-                                                <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                             c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                                      </g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                                <g>
-                                    </g>
-                                  </svg>
+                                                <g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248 c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" /></g></g>
+                                                <g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48 C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064 c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4 C457.728,97.71,450.56,86.958,439.296,84.91z" /></g></g>
+                                                <g><g><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296 c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" /></g></g>
+                                                    </svg>
                                             </a>
                                         </div>
                                     </div>
@@ -112,27 +52,65 @@
                 </div>
             </div>
             <div class="btn-box">
-                <a href="/Baskets/Index/">
-                    Sepete Git (@ViewBag.v)
-                </a>
+                <a href="/Baskets/Index/">Sepete Git (@ViewBag.v)</a>
             </div>
         </div>
     </section>
 
-    @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+    <!-- Chatbot UI -->
+    <div class="chat-float-button" id="chatToggle">
+        <i class="bi bi-chat-dots-fill"></i>
+        <span class="chat-notification-badge" id="notificationBadge" style="display: none;">1</span>
+    </div>
 
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">
+                    <img src="https://cdn-icons-png.flaticon.com/512/12574/12574674.png" alt="Logo">
+                </div>
+                <div>
+                    <div class="fw-bold">Feane Sipariş Asistanı</div>
+                    <div class="chat-status">
+                        <span class="chat-status-dot"></span>
+                        Şu an çevrimiçi
+                    </div>
+                </div>
+            </div>
+            <button class="chat-close" id="chatClose">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <div class="connection-status" id="connectionStatus">
+            <i class="bi bi-wifi"></i> Bağlanıyor...
+        </div>
+
+        <div class="chat-messages" id="chatMessages"></div>
+
+        <div class="chat-input">
+            <form class="chat-input-form" id="chatForm">
+                <input type="text" class="chat-input-field" id="chatInput" placeholder="Bir mesaj yazın..." autocomplete="off">
+                <button type="submit" class="chat-send-btn" id="sendBtn">
+                    <i class="bi bi-send-fill"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
     @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
 
     <script>
-
         function showproductid(productId, menuTableId) {
             $.ajax({
                 type: 'POST',
                 url: "/Menu/AddBasket",
-                data: {
-                    id: productId,
-                    menuTableId: menuTableId 
-                },
+                data: { id: productId, menuTableId: menuTableId },
                 success: function () {
                     swal("Seçilen Ürün ID:" + productId, "Seçtiğiniz Ürün Sepete Eklendi!", "success");
                 },
@@ -142,12 +120,507 @@
                 }
             });
         };
-
-
-
-
     </script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</body>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- CHATBOT SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatToggle = document.getElementById('chatToggle');
+            const chatWindow = document.getElementById('chatWindow');
+            const chatClose = document.getElementById('chatClose');
+            const chatForm = document.getElementById('chatForm');
+            const chatInput = document.getElementById('chatInput');
+            const chatMessages = document.getElementById('chatMessages');
+            const sendBtn = document.getElementById('sendBtn');
+            const notificationBadge = document.getElementById('notificationBadge');
+            const connectionStatus = document.getElementById('connectionStatus');
+
+            let connection = null;
+            let isTyping = false;
+
+            const apiUrl = "https://localhost:7101"; 
+
+            function initializeSignalR() {
+                connection = new signalR.HubConnectionBuilder()
+                    .withUrl(`${apiUrl}/chathub`)
+                    .withAutomaticReconnect()
+                    .configureLogging(signalR.LogLevel.Information)
+                    .build();
+
+                connection.on("ReceiveMessage", (message) => {
+                    console.log("Mesaj alındı:", message);
+                    hideTypingIndicator();
+                    addBotMessage(message);
+                });
+
+                connection.onreconnecting(() => {
+                    console.log("Yeniden bağlanılıyor...");
+                    updateConnectionStatus("reconnecting");
+                });
+
+                connection.onreconnected(() => {
+                    console.log("Yeniden bağlandı");
+                    updateConnectionStatus("connected");
+                });
+
+                connection.onclose(() => {
+                    console.log("Bağlantı kesildi");
+                    updateConnectionStatus("disconnected");
+                });
+
+                connection.start()
+                    .then(() => {
+                        console.log("SignalR bağlantısı kuruldu");
+                        updateConnectionStatus("connected");
+                    })
+                    .catch(err => {
+                        console.error("SignalR bağlantı hatası:", err);
+                        updateConnectionStatus("disconnected");
+                    });
+            }
+
+            function updateConnectionStatus(status) {
+                connectionStatus.className = `connection-status ${status}`;
+                if (status === "connected") {
+                    connectionStatus.innerHTML = '<i class="bi bi-check-circle"></i> Bağlantı Kuruldu';
+                } else if (status === "reconnecting") {
+                    connectionStatus.innerHTML = '<i class="bi bi-arrow-repeat"></i> Yeniden bağlanılıyor...';
+                } else if (status === "disconnected") {
+                    connectionStatus.innerHTML = '<i class="bi bi-x-circle"></i> Bağlantı kesildi';
+                }
+            }
+
+            chatToggle.addEventListener('click', () => {
+                chatWindow.classList.toggle('show');
+                if (chatWindow.classList.contains('show')) {
+                    chatInput.focus();
+                    notificationBadge.style.display = 'none';
+                    if (chatMessages.children.length === 0) {
+                        addBotMessage("Merhaba! Ben Feane'nin sipariş asistanıyım. Size nasıl yardımcı olabilirim?");
+                        addQuickReplies();
+                    }
+                }
+            });
+
+            chatClose.addEventListener('click', () => chatWindow.classList.remove('show'));
+
+            chatForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const message = chatInput.value.trim();
+
+                if (message && !isTyping && connection?.state === signalR.HubConnectionState.Connected) {
+                    console.log("Mesaj gönderiliyor:", message);
+                    addUserMessage(message);
+                    chatInput.value = '';
+                    showTypingIndicator();
+
+                    try {
+                        await connection.invoke("SendMessage", message);
+                    } catch (err) {
+                        console.error("Mesaj gönderme hatası:", err);
+                        hideTypingIndicator();
+                        addBotMessage("Üzgünüm, bir hata oluştu. Lütfen tekrar deneyin.");
+                    }
+                }
+            });
+
+            function addUserMessage(message) {
+                const messageHtml = `
+                    <div class="message-content">
+                        <div class="message-bubble">${escapeHtml(message)}</div>
+                        <div class="message-time">${getCurrentTime()}</div>
+                    </div>`;
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message user';
+                messageDiv.innerHTML = messageHtml;
+                chatMessages.appendChild(messageDiv);
+                scrollToBottom();
+            }
+
+            function addBotMessage(message) {
+                const messageHtml = `
+                    <div class="message-content">
+                        <div class="message-bubble">${escapeHtml(message)}</div>
+                        <div class="message-time">${getCurrentTime()}</div>
+                    </div>`;
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message bot';
+                messageDiv.innerHTML = messageHtml;
+                chatMessages.appendChild(messageDiv);
+                scrollToBottom();
+
+                if (!chatWindow.classList.contains('show')) {
+                    notificationBadge.style.display = 'flex';
+                }
+            }
+
+            function addQuickReplies() {
+                const lastMessage = chatMessages.lastElementChild;
+                if (lastMessage?.classList.contains('bot')) {
+                    const quickRepliesDiv = document.createElement('div');
+                    quickRepliesDiv.className = 'quick-replies';
+                    quickRepliesDiv.innerHTML = `
+                        <button class="quick-reply-btn" onclick="sendQuickReply('Siparişim nerede?')"> Sipariş Durumu</button>
+                        <button class="quick-reply-btn" onclick="sendQuickReply('Menüde neler var?')"> Menü</button>
+                        <button class="quick-reply-btn" onclick="sendQuickReply('Fiyatlar nedir?')"> Fiyatlar</button>`;
+                    lastMessage.querySelector('.message-content').appendChild(quickRepliesDiv);
+                }
+            }
+
+            window.sendQuickReply = function(message) {
+                chatInput.value = message;
+                chatForm.dispatchEvent(new Event('submit'));
+            }
+
+            function showTypingIndicator() {
+                isTyping = true;
+                sendBtn.disabled = true;
+                const typingHtml = `
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            <div class="typing-indicator">
+                                <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
+                            </div>
+                        </div>
+                    </div>`;
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'message bot';
+                typingDiv.id = 'typingIndicator';
+                typingDiv.innerHTML = typingHtml;
+                chatMessages.appendChild(typingDiv);
+                scrollToBottom();
+            }
+
+            function hideTypingIndicator() {
+                isTyping = false;
+                sendBtn.disabled = false;
+                document.getElementById('typingIndicator')?.remove();
+            }
+
+            const scrollToBottom = () => chatMessages.scrollTop = chatMessages.scrollHeight;
+            const getCurrentTime = () => new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+            const escapeHtml = (text) => {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            initializeSignalR();
+        });
+    </script>
+
+
+    <style>
+               .chat-float-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #ffbe33;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+            .chat-float-button:hover {
+                transform: scale(1.1);
+                background-color: #e6a215;
+            }
+
+            .chat-float-button i {
+                color: #222831;
+                font-size: 28px;
+            }
+
+        .chat-notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc3545;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 380px;
+            max-width: 90vw;
+            height: 600px;
+            max-height: 80vh;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            overflow: hidden;
+            animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+            .chat-window.show {
+                display: flex;
+            }
+
+        .chat-header {
+            background-color: #222831;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 3px solid #ffbe33;
+        }
+
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-avatar {
+            width: 45px;
+            height: 45px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+            .chat-avatar img {
+                width: 35px;
+            }
+
+        .chat-status {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .chat-status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .chat-close {
+            background: transparent;
+            border: none;
+            color: white;
+            opacity: 0.7;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            font-size: 20px;
+        }
+
+            .chat-close:hover {
+                opacity: 1;
+            }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+            .message.user {
+                flex-direction: row-reverse;
+            }
+
+        .message-content {
+            max-width: 80%;
+        }
+
+        .message-bubble {
+            padding: 12px 18px;
+            border-radius: 20px;
+            word-wrap: break-word;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        .message.bot .message-bubble {
+            background: #e9e9e9;
+            color: #222831;
+            border-bottom-left-radius: 5px;
+        }
+
+        .message.user .message-bubble {
+            background: #ffbe33;
+            color: #222831;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message-time {
+            font-size: 11px;
+            color: #888;
+            margin-top: 5px;
+            padding: 0 5px;
+        }
+
+        .message.user .message-time {
+            text-align: right;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #aaa;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+            .typing-dot:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .typing-dot:nth-child(3) {
+                animation-delay: 0.4s;
+            }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .quick-reply-btn {
+            padding: 6px 14px;
+            background: transparent;
+            border: 1px solid #ffbe33;
+            color: #222831;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+            .quick-reply-btn:hover {
+                background: #ffbe33;
+                color: #222831;
+            }
+
+        .chat-input {
+            padding: 15px 20px;
+            background: #ffffff;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input-form {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chat-input-field {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            padding: 10px 18px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+            .chat-input-field:focus {
+                border-color: #ffbe33;
+            }
+
+        .chat-send-btn {
+            width: 45px;
+            height: 45px;
+            background: #ffbe33;
+            border: none;
+            border-radius: 50%;
+            color: #222831;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .chat-send-btn:hover:not(:disabled) {
+                background: #e6a215;
+            }
+
+            .chat-send-btn:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+        .connection-status {
+            padding: 8px 15px;
+            text-align: center;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+            .connection-status.connected {
+                background: #d4edda;
+                color: #155724;
+            }
+
+            .connection-status.reconnecting {
+                background: #fff3cd;
+                color: #856404;
+            }
+
+            .connection-status.disconnected {
+                background: #f8d7da;
+                color: #721c24;
+            }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+    </style>
+</body>
 </html>
